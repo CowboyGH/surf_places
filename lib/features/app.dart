@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:surf_places/core/router/router.dart';
+import 'package:surf_places/uikit/themes/app_theme_data.dart';
 
 class SurfPlaces extends StatelessWidget {
   const SurfPlaces({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(body: Center(child: Text('Hello World!'))),
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      routerConfig: router,
+      theme: AppThemeData.lightTheme,
+      darkTheme: AppThemeData.darkTheme,
     );
   }
 }

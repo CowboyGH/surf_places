@@ -13,6 +13,9 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
       Theme.of(context).extension<AppColorTheme>() ?? _throwThemeNotFound(context);
 
   final Color accent;
+  final Color accentVarient;
+  final Color secondAccent;
+  final Color secondAccentVarient;
   final Color background;
   final Color divider;
   final Color error;
@@ -34,6 +37,9 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
     required this.background,
     required this.surface,
     required this.accent,
+    required this.accentVarient,
+    required this.secondAccent,
+    required this.secondAccentVarient,
     required this.error,
     required this.inactive,
     required this.inactiveVariant,
@@ -54,6 +60,9 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
       background = AppColors.colorBackground,
       surface = AppColors.colorBlackDark,
       accent = AppColors.colorBlackGreen,
+      accentVarient = AppColors.colorBlackGreen2,
+      secondAccent = AppColors.colorBlackYellow,
+      secondAccentVarient = AppColors.colorBlackYellow2,
       error = AppColors.colorBlackError,
       inactive = AppColors.colorInactiveBlack,
       inactiveVariant = AppColors.colorBlackDark,
@@ -73,6 +82,9 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
       background = AppColors.colorBackground,
       surface = AppColors.colorBackground,
       accent = AppColors.colorWhiteGreen,
+      accentVarient = AppColors.colorWhiteGreen2,
+      secondAccent = AppColors.colorWhiteYellow,
+      secondAccentVarient = AppColors.colorWhiteYellow2,
       error = AppColors.colorWhiteError,
       inactive = AppColors.colorInactiveBlack,
       inactiveVariant = AppColors.colorBackground,
@@ -92,6 +104,9 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
     Color? background,
     Color? surface,
     Color? accent,
+    Color? accentVarient,
+    Color? secondAccent,
+    Color? secondAccentVarient,
     Color? error,
     Color? inactive,
     Color? inactiveVariant,
@@ -110,6 +125,9 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
       background: background ?? this.background,
       surface: surface ?? this.surface,
       accent: accent ?? this.accent,
+      accentVarient: accentVarient ?? this.accentVarient,
+      secondAccent: secondAccent ?? this.secondAccent,
+      secondAccentVarient: secondAccentVarient ?? this.secondAccentVarient,
       error: error ?? this.error,
       inactive: inactive ?? this.inactive,
       inactiveVariant: inactiveVariant ?? this.inactiveVariant,
@@ -139,6 +157,9 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
       background: Color.lerp(background, other.background, t)!,
       surface: Color.lerp(surface, other.surface, t)!,
       accent: Color.lerp(accent, other.accent, t)!,
+      accentVarient: Color.lerp(accentVarient, other.accentVarient, t)!,
+      secondAccent: Color.lerp(secondAccent, other.secondAccent, t)!,
+      secondAccentVarient: Color.lerp(secondAccentVarient, other.secondAccentVarient, t)!,
       error: Color.lerp(error, other.error, t)!,
       inactive: Color.lerp(inactive, other.inactive, t)!,
       inactiveVariant: Color.lerp(inactiveVariant, other.inactiveVariant, t)!,
