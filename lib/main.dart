@@ -1,3 +1,3 @@
 import 'package:surf_places/runner.dart';
 
-void main() => run();
+void main() async => await run();

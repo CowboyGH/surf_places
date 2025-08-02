@@ -28,18 +28,10 @@ enum AppTextStyle {
       fontFamily: _fontFamily,
     ),
   ),
-  textMedium(
-    TextStyle(
-      fontSize: 16,
-      fontWeight: FontWeight.w500,
-      height: 1.25,
-      fontFamily: _fontFamily,
-    ),
-  ),
   text(
     TextStyle(
       fontSize: 16,
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.w500,
       height: 1.25,
       fontFamily: _fontFamily,
     ),
@@ -57,14 +49,6 @@ enum AppTextStyle {
       fontSize: 14,
       fontWeight: FontWeight.w400,
       height: 1.29,
-      fontFamily: _fontFamily,
-    ),
-  ),
-  superSmallMedium(
-    TextStyle(
-      fontSize: 12,
-      fontWeight: FontWeight.w500,
-      height: 1.33,
       fontFamily: _fontFamily,
     ),
   ),

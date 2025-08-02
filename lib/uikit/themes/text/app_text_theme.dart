@@ -16,20 +16,16 @@ class AppTextTheme extends ThemeExtension<AppTextTheme> {
   final TextStyle smallBold;
   final TextStyle subtitle;
   final TextStyle superSmall;
-  final TextStyle superSmallMedium;
   final TextStyle text;
-  final TextStyle textMedium;
   final TextStyle title;
 
   const AppTextTheme._({
     required this.largeTitle,
     required this.title,
     required this.subtitle,
-    required this.textMedium,
     required this.text,
     required this.smallBold,
     required this.small,
-    required this.superSmallMedium,
     required this.superSmall,
     required this.button,
   });
@@ -39,11 +35,9 @@ class AppTextTheme extends ThemeExtension<AppTextTheme> {
     : largeTitle = AppTextStyle.largeTitle.value,
       title = AppTextStyle.title.value,
       subtitle = AppTextStyle.subtitle.value,
-      textMedium = AppTextStyle.textMedium.value,
       text = AppTextStyle.text.value,
       smallBold = AppTextStyle.smallBold.value,
       small = AppTextStyle.small.value,
-      superSmallMedium = AppTextStyle.superSmallMedium.value,
       superSmall = AppTextStyle.superSmall.value,
       button = AppTextStyle.button.value;
 
@@ -65,11 +59,9 @@ class AppTextTheme extends ThemeExtension<AppTextTheme> {
       largeTitle: largeTitle ?? this.largeTitle,
       title: title ?? this.title,
       subtitle: subtitle ?? this.subtitle,
-      textMedium: textMedium ?? this.textMedium,
       text: text ?? this.text,
       smallBold: smallBold ?? this.smallBold,
       small: small ?? this.small,
-      superSmallMedium: superSmallMedium ?? this.superSmallMedium,
       superSmall: superSmall ?? this.superSmall,
       button: button ?? this.button,
     );
@@ -90,15 +82,10 @@ class AppTextTheme extends ThemeExtension<AppTextTheme> {
       largeTitle: TextStyle.lerp(largeTitle, other.largeTitle, t)!,
       title: TextStyle.lerp(title, other.title, t)!,
       subtitle: TextStyle.lerp(subtitle, other.subtitle, t)!,
-      textMedium: TextStyle.lerp(textMedium, other.textMedium, t)!,
       text: TextStyle.lerp(text, other.text, t)!,
       smallBold: TextStyle.lerp(smallBold, other.smallBold, t)!,
       small: TextStyle.lerp(small, other.small, t)!,
-      superSmallMedium: TextStyle.lerp(
-        superSmallMedium,
-        other.superSmallMedium,
-        t,
-      )!,
+
       superSmall: TextStyle.lerp(superSmall, other.superSmall, t)!,
       button: TextStyle.lerp(button, other.button, t)!,
     );

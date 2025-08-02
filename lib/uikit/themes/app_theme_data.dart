@@ -40,8 +40,8 @@ abstract class AppThemeData {
       type: BottomNavigationBarType.fixed,
       unselectedItemColor: _lightColorTheme.textPrimary,
       selectedItemColor: _lightColorTheme.textPrimary,
-      selectedLabelStyle: _textTheme.superSmallMedium,
-      unselectedLabelStyle: _textTheme.superSmallMedium,
+      selectedLabelStyle: _textTheme.superSmall,
+      unselectedLabelStyle: _textTheme.superSmall,
     ),
   );
 
@@ -78,8 +78,8 @@ abstract class AppThemeData {
       type: BottomNavigationBarType.fixed,
       unselectedItemColor: _darkColorTheme.textPrimary,
       selectedItemColor: _darkColorTheme.textPrimary,
-      selectedLabelStyle: _textTheme.superSmallMedium,
-      unselectedLabelStyle: _textTheme.superSmallMedium,
+      selectedLabelStyle: _textTheme.superSmall,
+      unselectedLabelStyle: _textTheme.superSmall,
     ),
   );
 }
