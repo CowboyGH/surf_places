@@ -8,4 +8,13 @@ abstract class AppRouteStrings {
 
   /// Приветственный экран.
   static const onboarding = '/onboarding';
+
+  /// Экран с картой.
+  static const map = '/map';
+
+  /// Экран с избранным.
+  static const favorites = '/favorites';
+
+  /// Экран с настройками.
+  static const settings = '/settings';
 }

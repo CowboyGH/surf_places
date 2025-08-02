@@ -38,6 +38,8 @@ abstract class AppThemeData {
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       type: BottomNavigationBarType.fixed,
+      showUnselectedLabels: false,
+      showSelectedLabels: false,
       unselectedItemColor: _lightColorTheme.textPrimary,
       selectedItemColor: _lightColorTheme.textPrimary,
       selectedLabelStyle: _textTheme.superSmall,
@@ -76,6 +78,8 @@ abstract class AppThemeData {
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       type: BottomNavigationBarType.fixed,
+      showUnselectedLabels: false,
+      showSelectedLabels: false,
       unselectedItemColor: _darkColorTheme.textPrimary,
       selectedItemColor: _darkColorTheme.textPrimary,
       selectedLabelStyle: _textTheme.superSmall,
