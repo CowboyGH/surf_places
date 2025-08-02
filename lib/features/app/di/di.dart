@@ -1,5 +1,7 @@
+import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:surf_places/api/service/api_client.dart';
 import 'package:surf_places/core/services/preferences_service.dart';
 import 'package:surf_places/features/onboarding/data/repositories/onboarding_repository_impl.dart';
 import 'package:surf_places/features/onboarding/domain/repositories/i_onboarding_repository.dart';
@@ -21,6 +23,19 @@ Future<void> initDi() async {
   final prefs = await SharedPreferences.getInstance();
   final preferencesServise = PreferencesService(prefs);
   di.registerLazySingleton(() => preferencesServise);
+
+  // ApiClient
+  const timeout = Duration(seconds: 30);
+
+  final dio = Dio();
+  dio.options
+    ..baseUrl = 'http://109.73.206.134:8888/api/'
+    ..connectTimeout = timeout
+    ..receiveTimeout = timeout
+    ..sendTimeout = timeout;
+
+  final apiClient = ApiClient(dio);
+  di.registerLazySingleton(() => apiClient);
 
   // Data Layer
   di.registerLazySingleton<ISplashRepository>(() => SplashRepositoryImpl(preferencesServise));
