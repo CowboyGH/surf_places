@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:surf_places/assets/strings/app_strings.dart';
 import 'package:surf_places/features/places/presentation/bloc/places_bloc.dart';
 import 'package:surf_places/features/places/presentation/widgets/app_search_bar.dart';
