@@ -19,9 +19,7 @@ abstract class AppThemeData {
       elevation: 0,
       surfaceTintColor: Colors.transparent,
       iconTheme: IconThemeData(color: _lightColorTheme.neutralWhite),
-      titleTextStyle: _textTheme.subtitle.copyWith(
-        color: _lightColorTheme.neutralWhite,
-      ),
+      titleTextStyle: _textTheme.subtitle.copyWith(color: _lightColorTheme.neutralWhite),
     ),
     dividerTheme: DividerThemeData(color: _lightColorTheme.divider),
     sliderTheme: SliderThemeData(
@@ -38,6 +36,7 @@ abstract class AppThemeData {
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       type: BottomNavigationBarType.fixed,
+      backgroundColor: _lightColorTheme.scaffold,
       showUnselectedLabels: false,
       showSelectedLabels: false,
       unselectedItemColor: _lightColorTheme.textPrimary,
@@ -59,9 +58,7 @@ abstract class AppThemeData {
       elevation: 0,
       surfaceTintColor: Colors.transparent,
       iconTheme: IconThemeData(color: _darkColorTheme.neutralWhite),
-      titleTextStyle: _textTheme.subtitle.copyWith(
-        color: _darkColorTheme.neutralWhite,
-      ),
+      titleTextStyle: _textTheme.subtitle.copyWith(color: _darkColorTheme.neutralWhite),
     ),
     dividerTheme: DividerThemeData(color: _darkColorTheme.divider),
     sliderTheme: SliderThemeData(
@@ -78,6 +75,7 @@ abstract class AppThemeData {
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       type: BottomNavigationBarType.fixed,
+      backgroundColor: _darkColorTheme.scaffold,
       showUnselectedLabels: false,
       showSelectedLabels: false,
       unselectedItemColor: _darkColorTheme.textPrimary,
