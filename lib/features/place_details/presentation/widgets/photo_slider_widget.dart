@@ -23,22 +23,28 @@ class PhotoSliderWidget extends StatelessWidget {
           width: double.infinity,
           child: Stack(
             children: [
-              PageView.builder(
-                itemCount: images.length,
-                itemBuilder: (_, index) {
-                  debugPrint(images[index]);
-                  return CachedNetworkImage(
-                    imageUrl: images[index],
-                    fit: BoxFit.cover,
-                    errorWidget: (_, __, ___) => Center(
+              images.isNotEmpty
+                  ? PageView.builder(
+                      itemCount: images.length,
+                      itemBuilder: (_, index) {
+                        return CachedNetworkImage(
+                          imageUrl: images[index],
+                          fit: BoxFit.cover,
+                          errorWidget: (_, __, ___) => Center(
+                            child: Text(
+                              AppStrings.noPhoto,
+                              style: textTheme.text.copyWith(color: colorTheme.textPrimary),
+                            ),
+                          ),
+                        );
+                      },
+                    )
+                  : Center(
                       child: Text(
                         AppStrings.noPhoto,
-                        style: textTheme.text.copyWith(color: colorTheme.neutralWhite),
+                        style: textTheme.text.copyWith(color: colorTheme.textPrimary),
                       ),
                     ),
-                  );
-                },
-              ),
               Positioned(
                 left: 16,
                 top: topPositionBackButton,

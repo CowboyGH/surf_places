@@ -48,11 +48,13 @@ class PlaceCardWidget extends StatelessWidget {
                     SizedBox(
                       width: double.infinity,
                       height: _imageHeight,
-                      child: CachedNetworkImage(
-                        imageUrl: place.images.firstWhere((_) => true, orElse: () => ''),
-                        fit: BoxFit.cover,
-                        errorWidget: (_, __, ___) => Center(child: Text(AppStrings.noPhoto)),
-                      ),
+                      child: place.images.isNotEmpty
+                          ? CachedNetworkImage(
+                              imageUrl: place.images.first,
+                              fit: BoxFit.cover,
+                              errorWidget: (_, __, ___) => Center(child: Text(AppStrings.noPhoto)),
+                            )
+                          : Center(child: Text(AppStrings.noPhoto)),
                     ),
                     Positioned(
                       left: 16,
