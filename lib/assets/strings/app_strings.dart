@@ -23,6 +23,13 @@ abstract class AppStrings {
   static const placeDetailsInFavoritesButton = 'В Избранном';
   static const placeDetailsShareButton = 'Поделиться';
 
+  /// Избранное.
+  static const favoritesScreenAppBarTitle = 'Избранное';
+  static const emptyFavoritesListWidgetMessage = 'Пусто';
+
+  /// Настройки.
+  static const settingsScreenAppBarTitle = 'Настройки';
+
   /// Снэк-бары для действий с карточкой.
   static const cardTapSnackbar = 'Тап по карточке';
   static const likeTapSnackbar = 'Лайк для';
@@ -31,6 +38,4 @@ abstract class AppStrings {
   static const placesLoading = 'Загрузка';
   static const placesError = 'Что-то пошло не так.\\n Ошибка: ';
   static const noPhoto = 'Нет фото';
-
-  static const settingsScreenAppBarTitle = 'Настройки';
 }
