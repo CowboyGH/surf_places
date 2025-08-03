@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:surf_places/assets/strings/app_strings.dart';
+import 'package:surf_places/features/common/presentation/widgets/service_unavailable_widget.dart';
 import 'package:surf_places/features/favorites/presentation/widgets/empty_favorites_list_widget.dart';
 import 'package:surf_places/uikit/themes/colors/app_color_theme.dart';
 import 'package:surf_places/uikit/themes/text/app_text_theme.dart';
@@ -20,7 +21,7 @@ class FavoritesScreen extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: SafeArea(child: Center(child: EmptyFavoritesListWidget())),
+      body: SafeArea(child: Center(child: ServiceUnavailableWidget())),
     );
   }
 }
