@@ -20,10 +20,12 @@ class PreferencesService {
     return _prefs.getString(_appearanceKey) ?? 'light';
   }
 
+  /// Устанавливает флаг, что пользователь прошёл приветственный экран.
   Future<void> setOnboardingSeen() async {
     await _prefs.setBool(_onboardingSeenKey, true);
   }
 
+  /// Проверяет, проходил ли пользователь приветственный экран.
   bool hasSeenOnboarding() {
     return _prefs.getBool(_onboardingSeenKey) ?? false;
   }
