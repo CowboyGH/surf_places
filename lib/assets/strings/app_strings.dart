@@ -32,7 +32,5 @@ abstract class AppStrings {
   static const placesError = 'Что-то пошло не так.\\n Ошибка: ';
   static const noPhoto = 'Нет фото';
 
-  /// Заглушки
-  static const favoritesStub = 'Избранное (заглушка)';
-  static const settingsStub = 'Настройки (заглушка)';
+  static const settingsScreenAppBarTitle = 'Настройки';
 }

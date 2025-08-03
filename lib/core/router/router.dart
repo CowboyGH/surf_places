@@ -6,6 +6,7 @@ import 'package:surf_places/features/onboarding/presentation/onboarding_screen.d
 import 'package:surf_places/features/place_details/presentation/place_details_screen.dart';
 import 'package:surf_places/features/places/presentation/places_screen.dart';
 import 'package:surf_places/features/root/presentation/root_screen.dart';
+import 'package:surf_places/features/settings/presentation/settings_screen.dart';
 import 'package:surf_places/features/splash/presentation/splash_screen.dart';
 
 /// Глобальный ключ для корневого навигатора.
@@ -55,10 +56,7 @@ final router = GoRouter(
         ),
         StatefulShellBranch(
           routes: [
-            GoRoute(
-              path: AppRouteStrings.settings,
-              builder: (context, state) => Scaffold(body: Center(child: Text('Settings'))),
-            ),
+            GoRoute(path: AppRouteStrings.settings, builder: (context, state) => SettingsScreen()),
           ],
         ),
       ],
