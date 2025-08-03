@@ -11,7 +11,7 @@ abstract class AppStrings {
   static const onboardingStartButton = 'На старт';
 
   /// Список мест.
-  static const placesScreenAppBarTitle = 'Список мест';
+  static const placesScreenAppBarTitle = 'Список интересных мест';
   static const placesScreenBottomNavPlaces = 'Места';
   static const placesScreenBottomNavMap = 'Карта';
   static const placesScreenBottomNavFavorites = 'Избранное';
