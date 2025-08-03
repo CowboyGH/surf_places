@@ -12,6 +12,7 @@ final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final router = GoRouter(
   navigatorKey: _rootNavigatorKey,
   routes: [
+    // Стек маршрутов для нижней навигационной панели.
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) => RootScreen(navigationShell: navigationShell),
       branches: [
@@ -49,6 +50,7 @@ final router = GoRouter(
         ),
       ],
     ),
+    // Остальные маршруты.
     GoRoute(path: AppRouteStrings.splash, builder: (context, state) => SplashScreen()),
     GoRoute(path: AppRouteStrings.onboarding, builder: (context, state) => OnboardingScreen()),
   ],

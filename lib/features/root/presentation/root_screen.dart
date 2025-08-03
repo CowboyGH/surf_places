@@ -5,6 +5,7 @@ import 'package:surf_places/assets/strings/app_strings.dart';
 import 'package:surf_places/uikit/images/svg_picture_widget.dart';
 import 'package:surf_places/uikit/themes/colors/app_color_theme.dart';
 
+/// Экран с [BottomNavigationBar].
 class RootScreen extends StatelessWidget {
   final StatefulNavigationShell navigationShell;
 
