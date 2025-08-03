@@ -21,6 +21,7 @@ abstract class AppStrings {
   static const placeDetailsRouteButton = 'ПОСТРОИТЬ МАРШРУТ';
   static const placeDetailsFavoritesButton = 'В Избранное';
   static const placeDetailsInFavoritesButton = 'В Избранном';
+  static const placeDetailsShareButton = 'Поделиться';
 
   /// Снэк-бары для действий с карточкой.
   static const cardTapSnackbar = 'Тап по карточке';

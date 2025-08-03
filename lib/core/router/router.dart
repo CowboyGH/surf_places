@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:surf_places/assets/strings/app_route_strings.dart';
+import 'package:surf_places/features/common/domain/entities/place_entity.dart';
 import 'package:surf_places/features/onboarding/presentation/onboarding_screen.dart';
+import 'package:surf_places/features/place_details/presentation/place_details_screen.dart';
 import 'package:surf_places/features/places/presentation/places_screen.dart';
 import 'package:surf_places/features/root/presentation/root_screen.dart';
 import 'package:surf_places/features/splash/presentation/splash_screen.dart';
@@ -19,7 +21,20 @@ final router = GoRouter(
       branches: [
         StatefulShellBranch(
           routes: [
-            GoRoute(path: AppRouteStrings.home, builder: (context, state) => PlacesScreen()),
+            GoRoute(
+              path: AppRouteStrings.home,
+              builder: (context, state) => PlacesScreen(),
+              routes: [
+                GoRoute(
+                  path: AppRouteStrings.place,
+                  parentNavigatorKey: _rootNavigatorKey,
+                  builder: (context, state) {
+                    final place = state.extra as PlaceEntity;
+                    return PlaceDetailsScreen(place: place);
+                  },
+                ),
+              ],
+            ),
           ],
         ),
         StatefulShellBranch(

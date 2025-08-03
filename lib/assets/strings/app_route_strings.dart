@@ -6,6 +6,9 @@ abstract class AppRouteStrings {
   /// Главный экран.
   static const home = '/places';
 
+  /// Экран с деталями места (вложен в основной экран).
+  static const place = 'place';
+
   /// Приветственный экран.
   static const onboarding = '/onboarding';
 

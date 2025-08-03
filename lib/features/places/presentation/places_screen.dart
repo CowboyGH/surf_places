@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:surf_places/assets/strings/app_route_strings.dart';
 import 'package:surf_places/assets/strings/app_strings.dart';
 import 'package:surf_places/features/places/presentation/bloc/places_bloc.dart';
 import 'package:surf_places/features/places/presentation/widgets/app_search_bar.dart';
@@ -63,7 +65,10 @@ class _PlacesScreenState extends State<PlacesScreen> {
                     final place = places[index];
                     return PlaceCardWidget(
                       place: place,
-                      onCardTap: () {},
+                      onCardTap: () => context.push(
+                        '${AppRouteStrings.home}/${AppRouteStrings.place}',
+                        extra: place,
+                      ),
                       onLikeTap: () {},
                       cardType: PlaceCardType.place,
                     );
