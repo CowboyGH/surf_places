@@ -66,7 +66,7 @@ class _PlacesScreenState extends State<PlacesScreen> {
                     return PlaceCardWidget(
                       place: place,
                       onCardTap: () => context.push(
-                        '${AppRouteStrings.home}/${AppRouteStrings.place}',
+                        '${AppRouteStrings.places}/${AppRouteStrings.place}',
                         extra: place,
                       ),
                       onLikeTap: () {},

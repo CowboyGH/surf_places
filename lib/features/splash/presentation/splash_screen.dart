@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
           ready: (hasSeenOnboarding) {
             Future.delayed(const Duration(seconds: 2), () {
               if (hasSeenOnboarding) {
-                _navigateToScreen(AppRouteStrings.home);
+                _navigateToScreen(AppRouteStrings.places);
               } else {
                 _navigateToScreen(AppRouteStrings.onboarding);
               }

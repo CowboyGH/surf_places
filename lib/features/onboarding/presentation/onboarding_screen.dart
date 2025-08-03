@@ -37,7 +37,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         listener: (context, state) {
           state.maybeWhen(
             completed: () {
-              context.go(AppRouteStrings.home);
+              context.go(AppRouteStrings.places);
             },
             error: (failure) {
               debugPrint(failure.message);

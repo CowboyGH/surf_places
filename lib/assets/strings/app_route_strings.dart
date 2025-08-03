@@ -4,7 +4,7 @@ abstract class AppRouteStrings {
   static const splash = '/';
 
   /// Главный экран.
-  static const home = '/places';
+  static const places = '/places';
 
   /// Экран с деталями места (вложен в основной экран).
   static const place = 'place';

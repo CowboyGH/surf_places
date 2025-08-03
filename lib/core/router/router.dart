@@ -22,7 +22,7 @@ final router = GoRouter(
         StatefulShellBranch(
           routes: [
             GoRoute(
-              path: AppRouteStrings.home,
+              path: AppRouteStrings.places,
               builder: (context, state) => PlacesScreen(),
               routes: [
                 GoRoute(
