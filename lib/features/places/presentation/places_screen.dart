@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:surf_places/assets/strings/app_route_strings.dart';
 import 'package:surf_places/assets/strings/app_strings.dart';
 import 'package:surf_places/features/places/presentation/bloc/places_bloc.dart';
-import 'package:surf_places/features/places/presentation/widgets/app_search_bar.dart';
+import 'package:surf_places/features/common/presentation/widgets/app_search_bar.dart';
 import 'package:surf_places/features/places/presentation/widgets/place_card_widget.dart';
 import 'package:surf_places/uikit/loading/app_loader.dart';
 import 'package:surf_places/uikit/loading/app_loader_sizes.dart';

@@ -23,6 +23,9 @@ abstract class AppStrings {
   static const placeDetailsInFavoritesButton = 'В Избранном';
   static const placeDetailsShareButton = 'Поделиться';
 
+  /// Карта.
+  static const mapScreenAppBarTitle = 'Карта';
+
   /// Избранное.
   static const favoritesScreenAppBarTitle = 'Избранное';
   static const emptyFavoritesListWidgetMessage = 'Пусто';
@@ -38,4 +41,5 @@ abstract class AppStrings {
   static const placesLoading = 'Загрузка';
   static const placesError = 'Что-то пошло не так.\\n Ошибка: ';
   static const noPhoto = 'Нет фото';
+  static const serviceUnavailable = 'Сервис недоступен';
 }

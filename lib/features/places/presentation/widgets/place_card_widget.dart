@@ -52,9 +52,10 @@ class PlaceCardWidget extends StatelessWidget {
                           ? CachedNetworkImage(
                               imageUrl: place.images.first,
                               fit: BoxFit.cover,
-                              errorWidget: (_, __, ___) => Center(child: Text(AppStrings.noPhoto)),
+                              errorWidget: (_, __, ___) =>
+                                  Center(child: Text(AppStrings.serviceUnavailable)),
                             )
-                          : Center(child: Text(AppStrings.noPhoto)),
+                          : Center(child: Text(AppStrings.serviceUnavailable)),
                     ),
                     Positioned(
                       left: 16,

@@ -8,7 +8,7 @@ import 'package:surf_places/features/onboarding/presentation/widgets/onboarding_
 import 'package:surf_places/uikit/buttons/main_button.dart';
 import 'package:surf_places/uikit/buttons/text_button_widget.dart';
 import 'package:surf_places/uikit/themes/colors/app_color_theme.dart';
-import 'package:surf_places/uikit/widgets/load_error_widget.dart';
+import 'package:surf_places/features/common/presentation/widgets/load_error_widget.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});

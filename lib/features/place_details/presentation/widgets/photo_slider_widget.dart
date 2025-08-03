@@ -32,7 +32,7 @@ class PhotoSliderWidget extends StatelessWidget {
                           fit: BoxFit.cover,
                           errorWidget: (_, __, ___) => Center(
                             child: Text(
-                              AppStrings.noPhoto,
+                              AppStrings.serviceUnavailable,
                               style: textTheme.text.copyWith(color: colorTheme.textPrimary),
                             ),
                           ),
@@ -41,7 +41,7 @@ class PhotoSliderWidget extends StatelessWidget {
                     )
                   : Center(
                       child: Text(
-                        AppStrings.noPhoto,
+                        AppStrings.serviceUnavailable,
                         style: textTheme.text.copyWith(color: colorTheme.textPrimary),
                       ),
                     ),
