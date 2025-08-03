@@ -18,10 +18,12 @@ class PlacesScreen extends StatefulWidget {
 }
 
 class _PlacesScreenState extends State<PlacesScreen> {
+  void _fetchPlaces() => context.read<PlacesBloc>().add(PlacesEvent.fetchPlaces());
+
   @override
   void initState() {
     super.initState();
-    context.read<PlacesBloc>().add(PlacesEvent.fetchPlaces());
+    _fetchPlaces();
   }
 
   @override
@@ -47,28 +49,33 @@ class _PlacesScreenState extends State<PlacesScreen> {
         centerTitle: true,
       ),
       body: SafeArea(
-        child: BlocBuilder<PlacesBloc, PlacesState>(
-          builder: (context, state) {
-            return state.maybeWhen(
-              loading: () => Center(child: AppLoader.create(size: AppLoaderSizes.medium)),
-              loaded: (places) => ListView.separated(
-                padding: EdgeInsets.only(left: 16, top: 32, right: 16, bottom: 16),
-                itemCount: places.length,
-                itemBuilder: (context, index) {
-                  final place = places[index];
-                  return PlaceCardWidget(
-                    place: place,
-                    onCardTap: () {},
-                    onLikeTap: () {},
-                    cardType: PlaceCardType.place,
-                  );
-                },
-                separatorBuilder: (context, index) => const SizedBox(height: 16),
-              ),
-              loadError: (failure) => Center(child: Text(failure.message.toString())),
-              orElse: () => SizedBox.shrink(),
-            );
-          },
+        child: RefreshIndicator(
+          backgroundColor: colorTheme.surface,
+          color: colorTheme.secondaryVariant,
+          onRefresh: () async => _fetchPlaces(),
+          child: BlocBuilder<PlacesBloc, PlacesState>(
+            builder: (context, state) {
+              return state.maybeWhen(
+                loading: () => Center(child: AppLoader.create(size: AppLoaderSizes.medium)),
+                loaded: (places) => ListView.separated(
+                  padding: EdgeInsets.only(left: 16, top: 32, right: 16, bottom: 16),
+                  itemCount: places.length,
+                  itemBuilder: (context, index) {
+                    final place = places[index];
+                    return PlaceCardWidget(
+                      place: place,
+                      onCardTap: () {},
+                      onLikeTap: () {},
+                      cardType: PlaceCardType.place,
+                    );
+                  },
+                  separatorBuilder: (context, index) => const SizedBox(height: 16),
+                ),
+                loadError: (failure) => Center(child: Text(failure.message.toString())),
+                orElse: () => SizedBox.shrink(),
+              );
+            },
+          ),
         ),
       ),
     );
