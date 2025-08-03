@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:surf_places/assets/strings/app_route_strings.dart';
-import 'package:surf_places/features/app/favorites/presentation/favorites_screen.dart';
+import 'package:surf_places/features/favorites/presentation/favorites_screen.dart';
 import 'package:surf_places/features/common/domain/entities/place_entity.dart';
 import 'package:surf_places/features/map/presentation/map_screen.dart';
 import 'package:surf_places/features/onboarding/presentation/onboarding_screen.dart';
