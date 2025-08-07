@@ -19,7 +19,7 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  bool _isDark = false;
+  bool _isDark = di<PreferencesService>().getAppearance() == 'light' ? false : true;
   void saveAppearance(String appearance) {
     di<PreferencesService>().setAppearance(appearance);
     themeNotifier.value = appearance == 'light' ? ThemeMode.light : ThemeMode.dark;
