@@ -28,12 +28,12 @@ final class PlacesRepositoryImpl extends BaseRepository implements IPlacesReposi
     return makeApiCall<List<PlaceEntity>>(
       remoteCall: () async {
         final remotePlaces = await _remoteDataSource.fetchPlaces();
+        final entityPlaces = remotePlaces
+            .map((e) => _placeDtoToEntityConverter.convert(e))
+            .toList();
 
-        final entityPlaces = <PlaceEntity>[];
-        for (final place in remotePlaces) {
-          entityPlaces.add(_placeDtoToEntityConverter.convert(place));
-        }
-        await _localDataSource.cachePlaces(entityPlaces);
+        await _localDataSource.updateCachedPlaces(entityPlaces);
+
         return entityPlaces;
       },
       fallback: () async {

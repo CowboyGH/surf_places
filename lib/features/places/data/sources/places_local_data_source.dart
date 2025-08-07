@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:surf_places/core/data/db/app_database.dart';
 import 'package:surf_places/features/common/domain/entities/place_entity.dart';
 import 'package:surf_places/features/places/data/mappers/place_entity_mapper.dart';
@@ -19,5 +20,16 @@ class PlacesLocalDataSource {
   Future<List<PlaceEntity>> getCachedPlaces() async {
     final rows = await db.select(db.placeTable).get();
     return rows.map((e) => e.toEntity()).toList();
+  }
+
+  /// Обновляет список мест в локальной базе данных.
+  Future<void> updateCachedPlaces(List<PlaceEntity> newPlaces) async {
+    final oldPlaces = await getCachedPlaces();
+
+    final listEquals = DeepCollectionEquality.unordered().equals;
+    if (!listEquals(oldPlaces, newPlaces)) {
+      final batch = newPlaces.map((e) => e.toCompanion()).toList();
+      await db.batch((b) => b.insertAllOnConflictUpdate(db.placeTable, batch));
+    }
   }
 }
