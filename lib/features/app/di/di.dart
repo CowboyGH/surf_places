@@ -36,14 +36,16 @@ Future<void> initDi() async {
   final db = AppDatabase();
 
   // ApiClient
-  const timeout = Duration(seconds: 30);
+  const connectTimeout = Duration(seconds: 10);
+  const receiveTimeout = Duration(seconds: 20);
+  const sendTimeout = Duration(seconds: 10);
 
   final dio = Dio();
   dio.options
     ..baseUrl = 'http://109.73.206.134:8888/api/'
-    ..connectTimeout = timeout
-    ..receiveTimeout = timeout
-    ..sendTimeout = timeout;
+    ..connectTimeout = connectTimeout
+    ..receiveTimeout = receiveTimeout
+    ..sendTimeout = sendTimeout;
 
   final apiClient = ApiClient(dio);
   di.registerLazySingleton(() => apiClient);

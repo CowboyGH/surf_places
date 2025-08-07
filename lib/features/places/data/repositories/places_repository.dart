@@ -1,4 +1,5 @@
 import 'package:surf_places/core/data/repositories/base_repository.dart';
+import 'package:surf_places/core/domain/entities/failure/network/no_network_failure.dart';
 import 'package:surf_places/core/domain/entities/result/request_operation.dart';
 import 'package:surf_places/features/common/data/converters/place_converter.dart';
 import 'package:surf_places/features/common/domain/entities/place_entity.dart';
@@ -32,6 +33,11 @@ final class PlacesRepositoryImpl extends BaseRepository implements IPlacesReposi
         }
         await _localDataSource.cachePlaces(entityPlaces);
         return entityPlaces;
+      },
+      fallback: () async {
+        final cachedPlaces = await _localDataSource.getCachedPlaces();
+        if (cachedPlaces.isEmpty) throw NoNetworkFailure();
+        return cachedPlaces;
       },
     );
   }
