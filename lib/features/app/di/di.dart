@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:surf_places/api/service/api_client.dart';
+import 'package:surf_places/core/data/db/app_database.dart';
 import 'package:surf_places/core/services/preferences_service.dart';
 import 'package:surf_places/features/common/data/converters/place_converter.dart';
 import 'package:surf_places/features/common/data/converters/place_type_converter.dart';
@@ -11,6 +12,8 @@ import 'package:surf_places/features/onboarding/domain/usecases/get_onboarding_p
 import 'package:surf_places/features/onboarding/domain/usecases/set_onboarding_seen.dart';
 import 'package:surf_places/features/onboarding/presentation/cubit/onboarding_cubit.dart';
 import 'package:surf_places/features/places/data/repositories/places_repository.dart';
+import 'package:surf_places/features/places/data/sources/places_local_data_source.dart';
+import 'package:surf_places/features/places/data/sources/places_remote_data_source.dart';
 import 'package:surf_places/features/places/domain/repositories/i_places_repository.dart';
 import 'package:surf_places/features/places/presentation/bloc/places_bloc.dart';
 import 'package:surf_places/features/splash/data/repositories/splash_repository_impl.dart';
@@ -28,6 +31,9 @@ Future<void> initDi() async {
   final prefs = await SharedPreferences.getInstance();
   final preferencesServise = PreferencesService(prefs);
   di.registerLazySingleton(() => preferencesServise);
+
+  // Database
+  final db = AppDatabase();
 
   // ApiClient
   const timeout = Duration(seconds: 30);
@@ -49,7 +55,8 @@ Future<void> initDi() async {
   );
   di.registerLazySingleton<IPlacesRepository>(
     () => PlacesRepositoryImpl(
-      apiClient: apiClient,
+      remoteDataSource: PlacesRemoteDataSource(apiClient: apiClient),
+      localDataSource: PlacesLocalDataSource(db: db),
       placeDtoToEntityConverter: PlaceDtoToEntityConverter(
         placeTypeConverter: PlaceTypeDtoToStringConverter(),
       ),
