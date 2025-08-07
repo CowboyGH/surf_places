@@ -13,28 +13,32 @@ final class OnboardingRepositoryImpl extends BaseRepository implements IOnboardi
   OnboardingRepositoryImpl(this.prefs);
 
   @override
-  RequestOperation<List<OnboardingPageEntity>> getPages() => makeApiCall(() async {
-    return [
-      const OnboardingPageEntity(
-        title: AppStrings.onboardingPage1Title,
-        description: AppStrings.onboardingPage1Description,
-        icon: AppSvgIcons.onboardingPage1,
-      ),
-      const OnboardingPageEntity(
-        title: AppStrings.onboardingPage2Title,
-        description: AppStrings.onboardingPage2Description,
-        icon: AppSvgIcons.onboardingPage2,
-      ),
-      const OnboardingPageEntity(
-        title: AppStrings.onboardingPage3Title,
-        description: AppStrings.onboardingPage3Description,
-        icon: AppSvgIcons.onboardingPage3,
-      ),
-    ];
-  });
+  RequestOperation<List<OnboardingPageEntity>> getPages() => makeApiCall(
+    remoteCall: () async {
+      return [
+        const OnboardingPageEntity(
+          title: AppStrings.onboardingPage1Title,
+          description: AppStrings.onboardingPage1Description,
+          icon: AppSvgIcons.onboardingPage1,
+        ),
+        const OnboardingPageEntity(
+          title: AppStrings.onboardingPage2Title,
+          description: AppStrings.onboardingPage2Description,
+          icon: AppSvgIcons.onboardingPage2,
+        ),
+        const OnboardingPageEntity(
+          title: AppStrings.onboardingPage3Title,
+          description: AppStrings.onboardingPage3Description,
+          icon: AppSvgIcons.onboardingPage3,
+        ),
+      ];
+    },
+  );
 
   @override
-  RequestOperation<void> setSeen() => makeApiCall(() async {
-    await prefs.setOnboardingSeen();
-  });
+  RequestOperation<void> setSeen() => makeApiCall(
+    remoteCall: () async {
+      await prefs.setOnboardingSeen();
+    },
+  );
 }

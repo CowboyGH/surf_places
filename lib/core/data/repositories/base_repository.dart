@@ -25,15 +25,28 @@ abstract base class BaseRepository {
 
   /// Обёртка для стандартной обработки ошибок обращения к API.
   @protected
-  RequestOperation<T> makeApiCall<T>(AsyncValueGetter<T> call) async {
+  RequestOperation<T> makeApiCall<T>({
+    required AsyncValueGetter<T> remoteCall,
+    AsyncValueGetter<T>? fallback,
+  }) async {
     final Result<T, Failure> failureResult;
 
     try {
-      final data = await call();
-
+      final data = await remoteCall();
       return Result.ok(data);
     } on DioException catch (e, s) {
-      failureResult = Result.failed(unwrapDioException(e, trace: s), s);
+      final networkFailure = unwrapDioException(e, trace: s);
+
+      if (fallback != null) {
+        try {
+          final localData = await fallback();
+          return Result.ok(localData);
+        } catch (fallbackError, fallbackStack) {
+          failureResult = Result.failed(networkFailure, fallbackStack);
+        }
+      } else {
+        failureResult = Result.failed(unwrapDioException(e, trace: s), s);
+      }
     } on Failure catch (e, s) {
       return Result.failed(e, s);
     } on Object catch (e, s) {

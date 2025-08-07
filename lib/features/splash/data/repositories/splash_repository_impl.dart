@@ -10,7 +10,9 @@ final class SplashRepositoryImpl extends BaseRepository implements ISplashReposi
   SplashRepositoryImpl(this.prefs);
 
   @override
-  RequestOperation<bool> hasSeenOnboarding() => makeApiCall(() async {
-    return prefs.hasSeenOnboarding();
-  });
+  RequestOperation<bool> hasSeenOnboarding() => makeApiCall(
+    remoteCall: () async {
+      return prefs.hasSeenOnboarding();
+    },
+  );
 }
