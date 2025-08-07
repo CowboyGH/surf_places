@@ -7,5 +7,6 @@ class PlacesRemoteDataSource {
 
   const PlacesRemoteDataSource({required this.apiClient});
 
+  /// Получает список мест из внешнего [ApiClient].
   Future<List<PlaceDto>> fetchPlaces() => apiClient.getPlaces();
 }

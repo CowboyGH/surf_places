@@ -16,6 +16,7 @@ class PlacesBloc extends Bloc<PlacesEvent, PlacesState> {
 
   final IPlacesRepository _placesRepository;
 
+  /// Инициализация события для получения списка мест.
   Future<void> _onFetchPlaces(PlacesEvent event, Emitter<PlacesState> emit) async {
     emit(PlacesState.loading());
     final placesResult = await _placesRepository.getPlaces();

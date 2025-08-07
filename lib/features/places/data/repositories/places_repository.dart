@@ -21,6 +21,8 @@ final class PlacesRepositoryImpl extends BaseRepository implements IPlacesReposi
        _localDataSource = localDataSource,
        _placeDtoToEntityConverter = placeDtoToEntityConverter;
 
+  /// Получает список мест из сети попутно сохраняя их в локальную базу данных.
+  /// Если нет сети, возвращает кэшированные данные из локальной базы данных.
   @override
   RequestOperation<List<PlaceEntity>> getPlaces() {
     return makeApiCall<List<PlaceEntity>>(

@@ -1,5 +1,6 @@
 import 'package:drift/drift.dart';
 
+/// Таблица для хранения информации о местах.
 class PlaceTable extends Table {
   IntColumn get id => integer()();
   TextColumn get name => text()();
