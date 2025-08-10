@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:surf_places/assets/strings/app_route_strings.dart';
 import 'package:surf_places/assets/strings/app_strings.dart';
+import 'package:surf_places/features/common/presentation/widgets/load_error_widget.dart';
 import 'package:surf_places/features/places/presentation/bloc/places_bloc.dart';
 import 'package:surf_places/features/common/presentation/widgets/app_search_bar.dart';
 import 'package:surf_places/features/places/presentation/widgets/place_card_widget.dart';
@@ -75,7 +76,7 @@ class _PlacesScreenState extends State<PlacesScreen> {
                   },
                   separatorBuilder: (context, index) => const SizedBox(height: 16),
                 ),
-                loadError: (failure) => Center(child: Text(failure.message.toString())),
+                loadError: (failure) => LoadErrorWidget(),
                 orElse: () => SizedBox.shrink(),
               );
             },
