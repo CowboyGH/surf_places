@@ -12,7 +12,7 @@ LazyDatabase _openConnection() {
   return LazyDatabase(() async {
     final dbFolder = await getApplicationDocumentsDirectory();
     final file = File(p.join(dbFolder.path, 'surf_places.db'));
-    return NativeDatabase(file);
+    return NativeDatabase.createInBackground(file);
   });
 }
 
