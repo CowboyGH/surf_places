@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
+import 'package:drift_dev/api/migrations.dart';
+import 'package:flutter/foundation.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:surf_places/features/places/data/models/place_table.dart';
@@ -22,4 +24,17 @@ class AppDatabase extends _$AppDatabase {
 
   @override
   int get schemaVersion => 1;
+
+  @override
+  MigrationStrategy get migration => MigrationStrategy(
+    onCreate: (m) => m.createAll(),
+    // onUpgrade: (m, from, to) async {
+    //   if (from < 2) {}
+    // },
+    beforeOpen: (details) async {
+      if (kDebugMode) {
+        await validateDatabaseSchema();
+      }
+    },
+  );
 }
