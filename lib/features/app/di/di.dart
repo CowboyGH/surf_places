@@ -6,6 +6,7 @@ import 'package:surf_places/api/service/api_client.dart';
 import 'package:surf_places/core/data/db/app_database.dart';
 import 'package:surf_places/core/services/network_service.dart';
 import 'package:surf_places/core/services/preferences_service.dart';
+import 'package:surf_places/features/common/cubit/network_cubit.dart';
 import 'package:surf_places/features/common/data/converters/place_converter.dart';
 import 'package:surf_places/features/common/data/converters/place_type_converter.dart';
 import 'package:surf_places/features/onboarding/data/repositories/onboarding_repository_impl.dart';
@@ -80,6 +81,7 @@ Future<void> initDi() async {
   di.registerLazySingleton(() => SetOnboardingSeen(di<IOnboardingRepository>()));
 
   // Presentation
+  di.registerFactory(() => NetworkCubit(di<NetworkService>()));
   di.registerFactory(() => SplashCubit(di<CheckOnboardingStatus>()));
   di.registerFactory(() => OnboardingCubit(di<GetOnboardingPages>(), di<SetOnboardingSeen>()));
   di.registerFactory(() => PlacesBloc(di<IPlacesRepository>()));
