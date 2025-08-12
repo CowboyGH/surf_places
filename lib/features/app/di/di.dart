@@ -1,8 +1,10 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:surf_places/api/service/api_client.dart';
 import 'package:surf_places/core/data/db/app_database.dart';
+import 'package:surf_places/core/services/network_service.dart';
 import 'package:surf_places/core/services/preferences_service.dart';
 import 'package:surf_places/features/common/data/converters/place_converter.dart';
 import 'package:surf_places/features/common/data/converters/place_type_converter.dart';
@@ -34,6 +36,13 @@ Future<void> initDi() async {
 
   // Database
   final db = AppDatabase();
+
+  // Network
+  di.registerLazySingleton<Connectivity>(() => Connectivity());
+  di.registerLazySingleton<NetworkService>(
+    () => NetworkService(connectivity: di<Connectivity>()),
+    dispose: (s) => s.dispose(),
+  );
 
   // ApiClient
   const connectTimeout = Duration(seconds: 10);
