@@ -45,7 +45,9 @@ class RootScreen extends StatelessWidget {
       body: navigationShell,
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          border: Border(top: BorderSide(color: colorTheme.divider.withOpacity(0.48), width: 0.3)),
+          border: Border(
+            top: BorderSide(color: colorTheme.divider.withValues(alpha: 0.48), width: 0.3),
+          ),
         ),
         child: BottomNavigationBar(
           items: _items,
