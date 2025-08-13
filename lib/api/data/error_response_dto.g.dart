@@ -13,7 +13,4 @@ ErrorResponseDto _$ErrorResponseDtoFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$ErrorResponseDtoToJson(ErrorResponseDto instance) =>
-    <String, dynamic>{
-      'code': instance.code,
-      if (instance.detail case final value?) 'detail': value,
-    };
+    <String, dynamic>{'code': instance.code, 'detail': ?instance.detail};

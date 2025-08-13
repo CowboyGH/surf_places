@@ -36,10 +36,9 @@ class _ApiClient implements ApiClient {
     final _result = await _dio.fetch<List<dynamic>>(_options);
     late List<PlaceDto> _value;
     try {
-      _value =
-          _result.data!
-              .map((dynamic i) => PlaceDto.fromJson(i as Map<String, dynamic>))
-              .toList();
+      _value = _result.data!
+          .map((dynamic i) => PlaceDto.fromJson(i as Map<String, dynamic>))
+          .toList();
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
